@@ -1,0 +1,19 @@
+#File extentions
+*.pyc
+*.env*
+
+#Folders
+migrations/
+__pycache__/
+staticfiles/
+backend/tmp/
+
+#DB
+*.sqlite3
+.tmp.sql
+.coverage
+venv/
+.DS_Store
+*.png
+*.jpg
+*.svg
