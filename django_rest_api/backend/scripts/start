@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+
+cd "$(dirname "$0")/.."
+. "$(pwd)/core/.env"
+
+if [ "$DEBUG" == "on" ]
+then
+    python3 manage.py runserver 0.0.0.0:7001
+else
+    gunicorn core.wsgi:application -w 4 -b 0.0.0.0:7002
+fi
