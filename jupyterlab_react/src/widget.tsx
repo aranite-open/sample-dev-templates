@@ -1,4 +1,5 @@
 import { ReactWidget } from '@jupyterlab/apputils';
+import {style} from './style'
 
 import React, { useState } from 'react';
 
@@ -21,29 +22,6 @@ const CounterComponent = (): JSX.Element => {
         {"province": "Quebec", "cases": 4162, "deaths": 31},
       ];
 	
-	const style = {
-		button: {
-			background: "#eee",
-			color: "#444",
-			borderRadius: "5px",
-			marginTop: "5px",
-			marginBottom: "10px",
-			marginRight: "4px",
-			marginLeft: "4px"
-		},
-		wrapper: {
-			paddingTop: "20px",
-			paddingLeft: "20px",
-		},
-		hr: {
-			height: "1px",
-			marginTop: "10px",
-			marginBottom: "10px"
-		},
-		leftAligned: {
-			textAlign: "left" as const
-		}
-	}
 
   const rows = data.map((item,i) => <tr><td>{item.province}</td><td>{item.cases}</td><td>{item.deaths}</td></tr>);
   return (
