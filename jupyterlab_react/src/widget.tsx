@@ -26,6 +26,7 @@ const CounterComponent = (): JSX.Element => {
   const rows = data.map((item,i) => <tr><td>{item.province}</td><td>{item.cases}</td><td>{item.deaths}</td></tr>);
   return (
     <div id="wrapper" style={style.wrapper}>
+			<h1>Confirmed cases of COVID-19 in Canada</h1>
 			<table>
 				<thead style={style.leftAligned}>
 					<th>Province</th>
