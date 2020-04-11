@@ -19,7 +19,11 @@ const style = {
 		},
 		leftAligned: {
 			textAlign: "left" as const
+		},
+		container: {
+			overflow: scroll
 		}
+
 	}
 
 export {style}
