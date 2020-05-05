@@ -33,6 +33,7 @@
     "watch": "tsc -w"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.28",
     "@jupyterlab/application": "^2.1.0",
     "@jupyterlab/apputils": "^2.1.0",
     "@jupyterlab/launcher": "^2.1.0",
