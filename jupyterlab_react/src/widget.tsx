@@ -1,6 +1,9 @@
+/** @jsx jsx */
 import { ReactWidget } from '@jupyterlab/apputils';
 import {style} from './style'
 import axios from 'axios'
+import { css, jsx  } from '@emotion/core'
+
 
 import React, { useEffect, useState, FunctionComponent } from 'react';
 
@@ -9,9 +12,18 @@ interface LayoutProps {
 }
 
 const Layout: React.SFC<LayoutProps> = ({children, name}): JSX.Element => {
+	const bgColor = "red"
+	const hoverColor = "white"
 	return (
 		<section style={style.container}>
-			<h3>Header</h3>
+			<h3 css={css`
+					background-color: ${bgColor};
+					font-size: 15px;
+					&:hover {
+						color: ${hoverColor}
+					}
+				`}
+			>Header</h3>
 			<h6>{name}</h6>
 			{children}
 			<h6>Footer</h6>
