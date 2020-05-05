@@ -1,9 +1,24 @@
 import { ReactWidget } from '@jupyterlab/apputils';
 import {style} from './style'
 
-import React, { useState } from 'react';
+import React, { useState, FunctionComponent } from 'react';
 
-const CounterComponent = (): JSX.Element => {
+interface LayoutProps {
+ name: string,
+}
+
+const Layout: React.SFC<LayoutProps> = ({children, name}): JSX.Element => {
+	return (
+		<section style={style.container}>
+			<h3>Header</h3>
+			<h6>{name}</h6>
+			{children}
+			<h6>Footer</h6>
+		</section>
+	)
+};
+
+const CounterComponent: FunctionComponent = (): JSX.Element => {
   const [counter, setCounter] = useState(0);
   const [visible, setVisible] = useState(true);
 	const data= [
@@ -24,8 +39,11 @@ const CounterComponent = (): JSX.Element => {
 	
 
   const rows = data.map((item,i) => <tr><td>{item.province}</td><td>{item.cases}</td><td>{item.deaths}</td></tr>);
+
+	const name = "Tracking the virus";
   return (
-    <div id="wrapper" style={style.wrapper}>
+	<Layout name={name}>
+    <div id="wrapper">
 			<h1>Confirmed cases of COVID-19 in Canada</h1>
 			<table>
 				<thead style={style.leftAligned}>
@@ -49,6 +67,7 @@ const CounterComponent = (): JSX.Element => {
       </button>
 			<button style={style.button} onClick={()=>setCounter(counter-1)}>Decrement</button>
     </div>
+		</Layout>
   );
 };
 
