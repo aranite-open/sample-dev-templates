@@ -1,4 +1,7 @@
 const style = {
+		container: {
+			padding: "20px"
+		},
 		button: {
 			background: "#eee",
 			color: "#444",
