@@ -1,7 +1,17 @@
 import { ReactWidget } from '@jupyterlab/apputils';
 import {style} from './style'
 
-import React, { useState } from 'react';
+import React, { useState, FunctionComponent } from 'react';
+
+const Layout: FunctionComponent = ({children}): JSX.Element => {
+	return (
+		<div>
+			<h3>Header</h3>
+			{children}
+			<h6>Footer</h6>
+		</div>
+	)
+};
 
 const CounterComponent = (): JSX.Element => {
   const [counter, setCounter] = useState(0);
@@ -25,6 +35,7 @@ const CounterComponent = (): JSX.Element => {
 
   const rows = data.map((item,i) => <tr><td>{item.province}</td><td>{item.cases}</td><td>{item.deaths}</td></tr>);
   return (
+	<Layout>
     <div id="wrapper" style={style.wrapper}>
 			<h1>Confirmed cases of COVID-19 in Canada</h1>
 			<table>
@@ -49,6 +60,7 @@ const CounterComponent = (): JSX.Element => {
       </button>
 			<button style={style.button} onClick={()=>setCounter(counter-1)}>Decrement</button>
     </div>
+		</Layout>
   );
 };
 
