@@ -8,21 +8,18 @@
 
 ## Install
 
-```bash
-jupyter labextension install jupyterlab-apod
-```
+First, checkout [this page](https://jupyterlab.readthedocs.io/en/stable/developer/extension_tutorial.html) and install necessary tools, including your conda environment.
 
-## Contributing
-
-### Install
-
-The `jlpm` command is JupyterLab's pinned version of
-[yarn](https://yarnpkg.com/) that is installed with JupyterLab. You may use
-`yarn` or `npm` in lieu of `jlpm` below.
 
 ```bash
 # Clone the repo to your local environment
-# Move to jupyterlab_apod directory
+git clone https://github.com/aranite-open/sample-dev-templates.git
+
+# cd to the directory
+cd sample-dev-templates/jupyterlab_ext
+
+#acivate your conda environment if not active
+conda activate jupyterlab-ext
 
 # Install dependencies
 jlpm
@@ -43,11 +40,4 @@ You can watch the source directory and run JupyterLab in watch mode to watch for
 jlpm watch
 # Run jupyterlab in watch mode in one terminal tab
 jupyter lab --watch
-```
-
-### Uninstall
-
-```bash
-
-jupyter labextension uninstall jupyterlab-apod
 ```
