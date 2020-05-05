@@ -1,7 +1,8 @@
 import { ReactWidget } from '@jupyterlab/apputils';
 import {style} from './style'
+import axios from 'axios'
 
-import React, { useState, FunctionComponent } from 'react';
+import React, { useEffect, useState, FunctionComponent } from 'react';
 
 interface LayoutProps {
  name: string,
@@ -21,6 +22,23 @@ const Layout: React.SFC<LayoutProps> = ({children, name}): JSX.Element => {
 const CounterComponent: FunctionComponent = (): JSX.Element => {
   const [counter, setCounter] = useState(0);
   const [visible, setVisible] = useState(true);
+	const [imgSrc, setImgSrc] = useState("");
+
+
+	useEffect(()=>{
+		axios.get('https://dog.ceo/api/breeds/image/random')
+				.then(function (response) {
+					console.log(response);
+					setImgSrc(response.data.message)
+				})
+				.catch(function (error) {
+					console.log(error);
+				})
+				.then(function () {
+				});
+	}, []);
+
+
 	const data= [
         {"province": "Alberta", "cases": 754, "deaths": 9},
         {"province": "Saskatchewan", "cases": 184, "deaths": 2},
@@ -38,18 +56,21 @@ const CounterComponent: FunctionComponent = (): JSX.Element => {
       ];
 	
 
-  const rows = data.map((item,i) => <tr><td>{item.province}</td><td>{item.cases}</td><td>{item.deaths}</td></tr>);
+  const rows = data.map((item,i) => <tr key={i}><td>{item.province}</td><td>{item.cases}</td><td>{item.deaths}</td></tr>);
 
-	const name = "Tracking the virus";
+	const name = "Random Dog of The Day";
   return (
 	<Layout name={name}>
     <div id="wrapper">
+			{imgSrc.length > 0 ? <img src={imgSrc} alt="Random Dog" /> : null}
 			<h1>Confirmed cases of COVID-19 in Canada</h1>
 			<table>
 				<thead style={style.leftAligned}>
-					<th>Province</th>
-					<th>Cases</th>
-					<th>Deaths</th>
+					<tr>
+						<th>Province</th>
+						<th>Cases</th>
+						<th>Deaths</th>
+					</tr>
 				</thead>
 				<tbody>
 					{visible ? rows : null}
