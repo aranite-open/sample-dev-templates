@@ -26,19 +26,19 @@ interface LayoutProps {
 }
 
 const Layout: FunctionComponent <LayoutProps> = ({children, name}): JSX.Element => {
-	const [headerColor, setHeaderColor] = useState("lightgreen");
+	const [buttonColor, setButtonColor] = useState("lightgreen");
 	return (
 		<section css={css`padding: 20px`}>
-			<h3 css={css`
-					background-color: ${headerColor}
+			<button css={css`
+					background-color: ${buttonColor};
 					font-size: 15px;
 					&:hover {
-						color: white
+						color: gray 
 					}
 				`}
-				onClick={()=>setHeaderColor(headerColor === "lighgreen"? "lightblue" : "lightgreen")}
-			>Header</h3>
-			<h6>{name}</h6>
+				onClick={()=>setButtonColor(buttonColor === "lightgreen"? "lightblue" : "lightgreen")}
+			>Change my color</button>
+			<h3>{name}</h3>
 			{children}
 			<h6>Footer</h6>
 		</section>
