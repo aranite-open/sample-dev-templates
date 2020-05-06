@@ -1,43 +1,37 @@
-# jupyterlab_react
+# JupyterLab Extension using React
 
 ![react-widget](./react-jupyterextension.gif)
 
-## Requirements
-
-* JupyterLab >= 2.0
 
 ## Install
+Install miniconda or conda from [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html).
 
-First, checkout [this page](https://jupyterlab.readthedocs.io/en/stable/developer/extension_tutorial.html) and install necessary tools, including your conda environment.
+Execute the following commands:
 
+```bash
+#creating conda environment and installing jupyterlab
+conda create -n jupyterlab-ext --override-channels --strict-channel-priority -c conda-forge -c anaconda jupyterlab cookiecutter nodejs git && conda activate jupyterlab-ext && conda install -c conda-forge jupyterlab=2
+```
+
+Cloning this repository:
 
 ```bash
 # Clone the repo to your local environment
 git clone https://github.com/aranite-open/sample-dev-templates.git
 
-# cd to the directory
+# cd to the jupyterlab_react directory
 cd sample-dev-templates/jupyterlab_ext
 
-#acivate your conda environment if not active
-conda activate jupyterlab-ext
-
-# Install dependencies
-jlpm
-# Build Typescript source
-jlpm build
-# Link your development version of the extension with JupyterLab
-jupyter labextension link .
-# Rebuild Typescript source after making changes
-jlpm build
-# Rebuild JupyterLab after making any changes
-jupyter lab build
+# Install dependencies and build the project
+jlpm && jlpm build && jupyter labextension link . && jlpm build && jupyter lab build && jlpm watch
 ```
 
-You can watch the source directory and run JupyterLab in watch mode to watch for changes in the extension's source and automatically rebuild the extension and application.
+Now the framewroking is watching your files and whenever there is a change, it will try building your code automatically. Don't termiate the process. Instead, open up a new terminal window/tab. Make sure you are in the `jupyterlab_react` folder. Execute the following command:
 
 ```bash
-# Watch the source directory in another terminal tab
-jlpm watch
-# Run jupyterlab in watch mode in one terminal tab
-jupyter lab --watch
+conda activate jupyterlab-ext && jupyter lab --watch
 ```
+
+This should open up jupyterlab in your default browser where you can find the React Widget (see the GIF above).
+
+Happy hacking!
