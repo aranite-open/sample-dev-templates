@@ -1,11 +1,25 @@
 /** @jsx jsx */
 import { ReactWidget } from '@jupyterlab/apputils';
-import {style} from './style'
 import axios from 'axios'
 import { css, jsx  } from '@emotion/core'
 
 
 import { useEffect, useState, FunctionComponent } from 'react';
+
+const style = {
+	leftAligned: {
+		textAlign: "left" as const
+	},
+	button: {
+			background: "#eee",
+			color: "#444",
+			borderRadius: "5px",
+			marginTop: "5px",
+			marginBottom: "10px",
+			marginRight: "4px",
+			marginLeft: "4px"
+		}	
+}
 
 interface LayoutProps {
  name: string,
@@ -14,7 +28,7 @@ interface LayoutProps {
 const Layout: FunctionComponent <LayoutProps> = ({children, name}): JSX.Element => {
 	const [headerColor, setHeaderColor] = useState("lightgreen");
 	return (
-		<section style={style.container}>
+		<section css={css`padding: 20px`}>
 			<h3 css={css`
 					background-color: ${headerColor}
 					font-size: 15px;
