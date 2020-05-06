@@ -5,24 +5,24 @@ import axios from 'axios'
 import { css, jsx  } from '@emotion/core'
 
 
-import React, { useEffect, useState, FunctionComponent } from 'react';
+import { useEffect, useState, FunctionComponent } from 'react';
 
 interface LayoutProps {
  name: string,
 }
 
-const Layout: React.SFC<LayoutProps> = ({children, name}): JSX.Element => {
-	const bgColor = "red"
-	const hoverColor = "white"
+const Layout: FunctionComponent <LayoutProps> = ({children, name}): JSX.Element => {
+	const [headerColor, setHeaderColor] = useState("lightgreen");
 	return (
 		<section style={style.container}>
 			<h3 css={css`
-					background-color: ${bgColor};
+					background-color: ${headerColor}
 					font-size: 15px;
 					&:hover {
-						color: ${hoverColor}
+						color: white
 					}
 				`}
+				onClick={()=>setHeaderColor(headerColor === "lighgreen"? "lightblue" : "lightgreen")}
 			>Header</h3>
 			<h6>{name}</h6>
 			{children}
