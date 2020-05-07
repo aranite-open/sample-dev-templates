@@ -1,30 +1,44 @@
 /** @jsx jsx */
 import { ReactWidget } from '@jupyterlab/apputils';
-import {style} from './style'
 import axios from 'axios'
 import { css, jsx  } from '@emotion/core'
 
 
-import React, { useEffect, useState, FunctionComponent } from 'react';
+import { useEffect, useState, FunctionComponent } from 'react';
+
+const style = {
+	leftAligned: {
+		textAlign: "left" as const
+	},
+	button: {
+			background: "#eee",
+			color: "#444",
+			borderRadius: "5px",
+			marginTop: "5px",
+			marginBottom: "10px",
+			marginRight: "4px",
+			marginLeft: "4px"
+		}	
+}
 
 interface LayoutProps {
  name: string,
 }
 
-const Layout: React.SFC<LayoutProps> = ({children, name}): JSX.Element => {
-	const bgColor = "red"
-	const hoverColor = "white"
+const Layout: FunctionComponent <LayoutProps> = ({children, name}): JSX.Element => {
+	const [buttonColor, setButtonColor] = useState("lightgreen");
 	return (
-		<section style={style.container}>
-			<h3 css={css`
-					background-color: ${bgColor};
+		<section css={css`padding: 20px`}>
+			<button css={css`
+					background-color: ${buttonColor};
 					font-size: 15px;
 					&:hover {
-						color: ${hoverColor}
+						color: gray 
 					}
 				`}
-			>Header</h3>
-			<h6>{name}</h6>
+				onClick={()=>setButtonColor(buttonColor === "lightgreen"? "lightblue" : "lightgreen")}
+			>Change my color</button>
+			<h3>{name}</h3>
 			{children}
 			<h6>Footer</h6>
 		</section>
