@@ -20,13 +20,13 @@ Cloning this repository:
 git clone https://github.com/aranite-open/sample-dev-templates.git
 
 # cd to the jupyterlab_react directory
-cd sample-dev-templates/jupyterlab_ext
+cd sample-dev-templates/jupyterlab_react
 
 # Install dependencies and build the project
 jlpm && jlpm build && jupyter labextension link . && jlpm build && jupyter lab build && jlpm watch
 ```
 
-Now the framewroking is watching your files and whenever there is a change, it will try building your code automatically. Don't termiate the process. Instead, open up a new terminal window/tab. Make sure you are in the `jupyterlab_react` folder. Execute the following command:
+Now the framework is watching your files and whenever there is a change, it will try building your code automatically. Don't termiate the process. Instead, open up a new terminal window/tab. Make sure you are in the `jupyterlab_react` folder. Execute the following command:
 
 ```bash
 conda activate jupyterlab-ext && jupyter lab --watch
