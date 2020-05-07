@@ -1,15 +1,15 @@
 {
-  "name": "jupyterlab-apod",
-  "version": "0.1.0",
-  "description": "No Desc",
+  "name": "jupyterlab-react",
+  "version": "0.1.1",
+  "description": "A JupyterLab Extension Using React",
   "keywords": [
     "jupyter",
     "jupyterlab",
     "jupyterlab-extension"
   ],
-  "homepage": "https://github.com/my_name/myextension",
+  "homepage": "https://github.com/aranite-open/sample-dev-templates/jupyterlab_react",
   "bugs": {
-    "url": "https://github.com/my_name/myextension/issues"
+    "url": "https://github.com/aranite-open/sample-dev-templates/jupyterlab_react"
   },
   "license": "BSD-3-Clause",
   "author": "Masoud",
@@ -22,7 +22,7 @@
   "style": "style/index.css",
   "repository": {
     "type": "git",
-    "url": "https://github.com/my_name/myextension.git"
+    "url": "https://github.com/aranite-open/sample-dev-templates"
   },
   "scripts": {
     "build": "tsc",
@@ -30,7 +30,8 @@
     "eslint": "eslint . --ext .ts,.tsx --fix",
     "eslint:check": "eslint . --ext .ts,.tsx",
     "prepare": "jlpm run clean && jlpm run build",
-    "watch": "tsc -w"
+    "watch": "tsc -w",
+		"format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\""
   },
   "dependencies": {
     "@emotion/core": "^10.0.28",
