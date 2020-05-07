@@ -2,8 +2,8 @@
 
 ![react-widget](./react-jupyterextension.gif)
 
-
 ## Install
+
 Install miniconda or conda from [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html).
 
 Execute the following commands:
