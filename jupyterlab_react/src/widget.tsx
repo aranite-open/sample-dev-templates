@@ -121,6 +121,8 @@ const CounterComponent: FunctionComponent = (): JSX.Element => {
             onLoad={finishedLoading}
             onClick={loadNewDoggy}
             alt="Random Dog"
+						title="Click to reaload"
+						css={css`cursor: pointer`}
           />
         ) : null}
         <h1>Confirmed cases of COVID-19 in Canada</h1>
