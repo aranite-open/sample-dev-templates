@@ -62,8 +62,10 @@ const CounterComponent: FunctionComponent = (): JSX.Element => {
   const [counter, setCounter] = useState(0);
   const [visible, setVisible] = useState(true);
   const [imgSrc, setImgSrc] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
+  const loadNewDoggy = () => {
+    setLoading(true);
     axios
       .get('https://dog.ceo/api/breeds/image/random')
       .then(function(response) {
@@ -74,6 +76,14 @@ const CounterComponent: FunctionComponent = (): JSX.Element => {
         console.log(error);
       })
       .then(function() {});
+  };
+
+  const finishedLoading = () => {
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    loadNewDoggy();
   }, []);
 
   const data = [
@@ -104,7 +114,17 @@ const CounterComponent: FunctionComponent = (): JSX.Element => {
   return (
     <Layout name={name}>
       <div id="wrapper">
-        {imgSrc.length > 0 ? <img src={imgSrc} alt="Random Dog" /> : null}
+        {loading ? <p>Loading...</p> : null}
+        {imgSrc.length > 0 ? (
+          <img
+            src={imgSrc}
+            onLoad={finishedLoading}
+            onClick={loadNewDoggy}
+            alt="Random Dog"
+						title="Click to reaload"
+						css={css`cursor: pointer`}
+          />
+        ) : null}
         <h1>Confirmed cases of COVID-19 in Canada</h1>
         <table>
           <thead style={style.leftAligned}>
