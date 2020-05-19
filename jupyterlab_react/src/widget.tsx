@@ -2,7 +2,7 @@
 import { ReactWidget } from '@jupyterlab/apputils';
 import axios from 'axios';
 import { css, jsx } from '@emotion/core';
-
+import 'bulma/css/bulma.css';
 import { useEffect, useState, FunctionComponent } from 'react';
 
 const style = {
@@ -121,8 +121,10 @@ const CounterComponent: FunctionComponent = (): JSX.Element => {
             onLoad={finishedLoading}
             onClick={loadNewDoggy}
             alt="Random Dog"
-						title="Click to reaload"
-						css={css`cursor: pointer`}
+            title="Click to reaload"
+            css={css`
+              cursor: pointer;
+            `}
           />
         ) : null}
         <h1>Confirmed cases of COVID-19 in Canada</h1>
