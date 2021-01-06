@@ -40,7 +40,7 @@
     "@jupyterlab/launcher": "^2.1.0",
     "@jupyterlab/ui-components": "^2.1.0",
     "@lumino/widgets": "^1.11.1",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bulma": "^0.8.2"
   },
   "devDependencies": {
